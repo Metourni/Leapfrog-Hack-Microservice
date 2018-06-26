@@ -4,7 +4,9 @@
   "description": "La création d'un modèle microservice qui va etre la base de chaque partie de notre projet (savers qui font le stockage des données, models qui font la détection des faits)",
   "main": "server.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "node server.js",
+    "watch": "nodemon server.js"
   },
   "keywords": [
     "node",
@@ -19,9 +21,11 @@
   "dependencies": {
     "bcrypt": "^2.0.1",
     "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "http": "0.0.0",
     "jsonwebtoken": "^8.3.0",
-    "morgan": "^1.9.0"
+    "morgan": "^1.9.0",
+    "nodemon": "^1.17.5"
   }
 }
