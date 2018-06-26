@@ -1,6 +1,6 @@
 "use strict";
 
-const mysqlModel = require('mysql-model');
+/*const mysqlModel = require('mysql-model');
 require('dotenv').config();
 
 
@@ -15,8 +15,9 @@ const MyAppModel = mysqlModel.createConnection({
 
 let User = MyAppModel.extend({
     tableName: "users"
-});
+});*/
 
+let User;
 
 module.exports = User;
 

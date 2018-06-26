@@ -4,9 +4,9 @@ const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
-/** Router */
-const restaurantRouter = require('./api/routes/RestaurantRouter');
-
+/** Routers */
+const userRouter = require('./api/routers/UserRouter');
+const router = require('./api/routers/Router.js');
 
 
 app.use(morgan('dev'));// To log all request
@@ -35,13 +35,9 @@ app.use((req, res, next) => {
 });
 
 /** Use the routers in the api to handel the requests */
-app.use('/restaurants', restaurantRouter);
-app.use('/dishes', dishRouter);
-app.use('/platBinaire', platBinaireRouter);
 app.use('/auth', userRouter);
-app.use('/orders', orderRouter);
-app.use('/categories', categoryRouter);
-app.use('/menuJour', menuDuJourRouter);
+app.use('/service', router);
+
 
 
 /** Handel Errors */
