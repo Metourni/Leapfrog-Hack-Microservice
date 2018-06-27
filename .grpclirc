@@ -1,0 +1,6 @@
+[default]
+ip = localhost
+port = 50051
+dir = proto
+file = messages.proto
+insecure = false

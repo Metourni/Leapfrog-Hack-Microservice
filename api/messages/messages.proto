@@ -1,0 +1,47 @@
+
+syntax = "proto3";
+
+message Msg {
+    int32 id = 1 ;
+    string value = 2;
+    repeated Msg_2 msg_2 = 3;
+}
+
+message Msg_2 {
+    int32 id = 1;
+    string name = 2;
+}
+
+message GetAllRequest {
+    string msg = 1;
+}
+
+message GetMsgByIdRequest {
+    int32 msgId = 1;
+}
+
+message MsgRequest {
+    string msg = 1;
+}
+
+message AddMsgRequest {
+
+}
+
+// Message Type definition for get All Msg response.
+message MsgResponse {
+    Msg msg  = 2 ;
+}
+
+message AddMsgResponse {
+    bool done = 1;
+}
+
+service MsgService {
+    rpc getMsgByIdRequest ( GetMsgByIdRequest ) returns (Msg);
+    rpc getAllMsg ( GetAllRequest ) returns (Msg);
+
+    rpc save (MsgRequest) returns (MsgResponse);
+    rpc saveAll (stream MsgRequest) returns (stream MsgResponse);
+
+}

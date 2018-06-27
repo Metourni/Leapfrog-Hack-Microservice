@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 
+
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
@@ -37,7 +38,6 @@ app.use((req, res, next) => {
 /** Use the routers in the api to handel the requests */
 app.use('/auth', userRouter);
 app.use('/service', router);
-
 
 
 /** Handel Errors */
