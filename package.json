@@ -5,8 +5,10 @@
   "main": "server.js",
   "scripts": {
     "test": "test",
-    "start": "node server.js",
-    "watch": "nodemon server.js"
+    "start": "node server/server.js",
+    "watch": "nodemon server/server.js",
+    "server": "nodemon server/server.js",
+    "client": "node client/index.js"
   },
   "keywords": [
     "node",

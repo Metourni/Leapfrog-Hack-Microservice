@@ -1,8 +1,12 @@
 'use strict';
 
 const grpc = require('grpc');
-const proto = grpc.load('./api/messages/messages.proto');
+const protoPath = require('path').join(__dirname, '../', 'proto');
+const proto = grpc.load({root: protoPath, file: 'messages.proto'});
 const server = new grpc.Server();
+
+require('dotenv').config();
+
 
 //define the callable methods that correspond to the methods defined in the protofile
 server.addProtoService(proto.MsgService.service, {
@@ -90,28 +94,14 @@ server.addProtoService(proto.MsgService.service, {
         }
     }
 
-    /**
-     Grant an employee leave days
-
-     grantLeave(call, callback) {
-        let granted_leave_days = call.request.requested_leave_days;
-        let accrued_leave_days = call.request.accrued_leave_days - granted_leave_days;
-
-        callback(null, {
-            granted: true,
-            granted_leave_days,
-            accrued_leave_days
-        });
-    }
-     */
 });
 
 //Specify the IP and and port to start the grpc Server, no SSL in test environment
-server.bind('localhost:50051', grpc.ServerCredentials.createInsecure());
+server.bind(process.env.GRPC_SERVER_HOST + ':' + process.env.GRPC_SERVER_PORT, grpc.ServerCredentials.createInsecure());
 
 //Start the server
 server.start();
-console.log('grpc server running on port:', 'localhost:50051');
+console.log('grpc server running on port:', process.env.GRPC_SERVER_HOST + ':' + process.env.GRPC_SERVER_PORT);
 
 
 /*
