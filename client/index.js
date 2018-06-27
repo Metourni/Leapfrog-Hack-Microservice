@@ -8,7 +8,7 @@ const client = new proto.MsgService('localhost:50051', grpc.credentials.createIn
 
 const msgs = {
     valid: {
-        msg:"h"
+        msg: "h"
     }
 };
 
@@ -17,10 +17,15 @@ const msgs = {
 client.getAllMsg(msgs.valid, (error, response) => {
     console.log("Before if");
     if (!error) {
-        console.log("Response :", response)
+        //console.log("Response :", response)
+        response.msg.forEach((es) => {
+            console.log(es);
+        });
+
     } else {
         console.log("Error:", error.message);
     }
 });
 
 console.log("end");
+

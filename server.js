@@ -12,13 +12,6 @@ server.addProtoService(proto.MsgService.service, {
      of accrued days.
      */
     getMsgByIdRequest(call, callback) {
-        if (1 > 0) {
-            callback(null, {msg: true});
-        } else {
-            callback(new Error('Invalid requested days'));
-        }
-    },
-    getAllMsg(call, callback) {
         console.log(call.request);
         console.log(callback);
         if (1 > 0) {
@@ -30,8 +23,53 @@ server.addProtoService(proto.MsgService.service, {
                     msg_2: {
                         id: 2,
                         name: "bb"
-                    },
+                    }
                 }
+            );
+        } else {
+            callback(new Error('Invalid requested days'));
+        }
+    },
+    getAllMsg(call, callback) {
+        console.log(call.request);
+        console.log(callback);
+        if (1 > 0) {
+            callback(
+                null,
+                [
+                    {
+                        id: 1,
+                        value: "hel",
+                        msg_2: {
+                            id: 2,
+                            name: "bb"
+                        }
+                    },
+                    {
+                        id: 1,
+                        value: "hel",
+                        msg_2: {
+                            id: 2,
+                            name: "bb"
+                        }
+                    },
+                    {
+                        id: 1,
+                        value: "hel",
+                        msg_2: {
+                            id: 2,
+                            name: "bb"
+                        }
+                    },
+                    {
+                        id: 1,
+                        value: "hel",
+                        msg_2: {
+                            id: 2,
+                            name: "bb"
+                        }
+                    }
+                ]
             );
         } else {
             callback(new Error('Invalid requested days'));

@@ -12,6 +12,10 @@ message Msg_2 {
     string name = 2;
 }
 
+message MsgArrayResponse{
+    repeated Msg msg = 1;
+}
+
 message GetAllRequest {
     string msg = 1;
 }
@@ -39,7 +43,7 @@ message AddMsgResponse {
 
 service MsgService {
     rpc getMsgByIdRequest ( GetMsgByIdRequest ) returns (Msg);
-    rpc getAllMsg ( GetAllRequest ) returns (Msg);
+    rpc getAllMsg ( GetAllRequest ) returns (MsgArrayResponse);
 
     rpc save (MsgRequest) returns (MsgResponse);
     rpc saveAll (stream MsgRequest) returns (stream MsgResponse);
