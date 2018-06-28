@@ -14,7 +14,9 @@ const MyAppModel = mysqlModel.createConnection({
 });
 
 let User = MyAppModel.extend({
+
     tableName: "users"
+
 });*/
 
 
