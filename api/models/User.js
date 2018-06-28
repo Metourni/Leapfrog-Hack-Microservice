@@ -17,6 +17,7 @@ let User = MyAppModel.extend({
     tableName: "users"
 });*/
 
+
 let User;
 
 module.exports = User;
